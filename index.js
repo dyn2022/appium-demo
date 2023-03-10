@@ -30,23 +30,27 @@ const main = async () => {
       automationName: "UiAutomator2",
     },
   });
-
+  
+  // Click vào nút Views
   const ViewsField = await client.$('//android.widget.TextView[@text="Views"]');
   await ViewsField.click();
 
   await sleep(3000);
-
+  
+  // Scroll màn hình xuống cuối
   await scrollDown(client);
 
   await sleep(1000);
+
+  // Click vào nút Text Swicher
   const TextSwitcherField = await client.$(
     '//android.widget.TextView[@text="TextSwitcher"]'
   );
-
   await TextSwitcherField.click();
 
   await sleep(1000);
-
+  
+  // Click vào nút Next 4 lần
   const NextButton = await client.$('//android.widget.Button[@text="Next"]');
 
   await NextButton.click();
@@ -55,7 +59,8 @@ const main = async () => {
   await NextButton.click();
 
   await sleep(3000);
-
+  
+  // Kiểm tra giá trị của TextView có bằng 4 hay không
   const TextField = await client
     .$("//android.widget.TextSwitcher")
     .$("//android.widget.TextView");
